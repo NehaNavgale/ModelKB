@@ -57,6 +57,11 @@ router.get('/getAll', function (req, res, next) {
   }
 });
 
+router.get('/demo', function (req, res, next) {
+  console.log("hai");
+  res.json("hai");
+});
+
 // { "$text": { "$search": q , "$caseSensitive": false} }
 
 router.post('/', function (req, res, next) {
@@ -66,12 +71,23 @@ router.post('/', function (req, res, next) {
   });
 });
 
+router.get('/getModels', function (req, res, next) {
+   var userid = req.query.userid;
+   usermodels.find({"userId":userid}, function (err, data) {
+     console.log(data);
+       if (err) return next(err);
+       res.json(data);
+     });
+
+});
+
  router.get('/:categoryID', function(req, res, next){
   modelsMetadata.find({"categoryID": req.params.categoryID}, function (err,post){
     if (err) return next(err);
     res.json(post);
   });
 });
+
 
 router.get('/getModel/:modelID', function(req, res, next){
   modelsMetadata.findById({"_id": req.params.modelID}, function (err,post){
@@ -80,6 +96,7 @@ router.get('/getModel/:modelID', function(req, res, next){
     post.URL = "http://localhost:4000/uploadToMongo/chunks/ahhgshgs";
     res.json(post);
   }).lean().exec();
+
 });
 
 // router.get('/get', function(req, res, next){
@@ -88,15 +105,9 @@ router.get('/getModel/:modelID', function(req, res, next){
 //     res.json(data);
 //   });
 // });
-router.get('/getModels', function (req, res, next) {
-  var userid = req.query.userid;
-  usermodels.find({"userId":userid}, function (err, data) {
-      if (err) return next(err);
-      res.json(data);
-    });
-});
-module.exports = router;
 
-// Author: Dharani-Reading meta data from File
+
+
+module.exports = router;
 
 

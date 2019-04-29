@@ -34,8 +34,8 @@ export class UsermodelmenuComponent implements OnInit {
   }
   ngOnInit() {
   this.isShowFolderView = true;
-    if (this.loggedinUserInfoService.userInfo.emailID) {
-      this.modelsService.getModelsBasedOnUserID(this.loggedinUserInfoService.userInfo.emailID).subscribe(response => {
+    if (this.loggedinUserInfoService.getUsers().emailID) {
+      this.modelsService.getModelsBasedOnUserID(this.loggedinUserInfoService.getUsers().emailID).subscribe(response => {
         this.allModelsBasedOnUserIdFromDb = response;
 
         this.distinctModelNames = Array.from(new Set(this.allModelsBasedOnUserIdFromDb.map(model => model.name)));

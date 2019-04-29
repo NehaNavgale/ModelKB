@@ -12,7 +12,6 @@ const UploadSchema = new Schema({
   categoryId: {
     type: String
   },
-
   experiment: {
     type: String
   },

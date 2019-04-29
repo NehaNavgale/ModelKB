@@ -28,7 +28,7 @@ export class TypographyComponent {
   constructor(private http: HttpClient, private vipraService: ViprahubService, private router: Router,
               private orderPipe: OrderPipe, private userInfo: LoggedinUserInfoService, private viewmodelDashboardService: ViewmodeldashboardService) {
     // this.listOfModels = this.orderPipe.transform(this.vipraService.searchResults, this.order);
-    console.log(userInfo.userInfo);
+    console.log(userInfo.getUsers());
     this.vipraService.getMetadata().subscribe(res => {
       this.vipraService.backupResults = res;
       this.vipraService.searchResults = res;
