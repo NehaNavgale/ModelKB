@@ -45,8 +45,6 @@ export class UploadDownloadComponent implements OnInit {
       this.categories = response;
     });
     this.modelsService.getAllModels().subscribe(response => {
-      console.log(response);
-      console.log("All Models");
       this.allModelsFromDb = response;
     });
   }
@@ -66,7 +64,7 @@ export class UploadDownloadComponent implements OnInit {
 
       // };
 
-    
+
       this.uploader.uploadAll();
 
       this.uploader.onSuccessItem = (item: FileItem, response: string) => {

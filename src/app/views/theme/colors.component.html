@@ -2,6 +2,14 @@
   .checked {
     color: orange;
   }
+  .commentsDiv{
+    border: 1px;
+    border-radius: 0rem !important;
+    box-shadow: 1px 1px 1px 1px #9e9a9a8f;
+    /* transition: all 0.3s ease; */
+    background-color: #ffffff;
+    padding: 12px;
+  }
 </style>
 <!--Model Overview-->
 <div class="card">
@@ -84,9 +92,31 @@
     <tab heading="TEST">
       <h6>Comming Soon....</h6>
     </tab>
-    <tab heading="COMMENTS" class="form-group col-lg-8">
-      <textarea class="form-control" name="comments"></textarea>
-      <button class="primary ">Post</button>
+    <tab heading="COMMENTS">
+    <!--  <table class="table border-bottom">
+        <tbody>
+          <tr *ngFor="let expComments of expComments">
+            <td>
+            </td>
+          </tr>
+        </tbody>
+    </table>-->
+      <div *ngFor="let expComments of expComments">
+        <div class="commentsDiv">
+          <p><i class="fa fa-user fa-2x"></i>
+            <strong>{{expComments.fullName}}</strong>({{expComments.emailID}}) posted comment on <strong>{{expComments.postedDate}}</strong>
+           <br/>
+           Comment:
+            {{expComments.comments}}
+
+          </p>
+        </div>
+      </div>
+      <br/>
+      <div class="row" style="padding-left: 12px">
+        <textarea class="form-control col-lg-8" name="comment" [(ngModel)]="comment"></textarea>
+        <button class="btn btn-info float-right" style="color: white" (click)="postComment()"><b>Comment</b></button>
+      </div>
     </tab>
   </tabset>
 </div>

@@ -55,7 +55,7 @@ export class TypographyComponent {
   }
   viewModel(id) {
     localStorage.setItem('modelID', id);
-    this.router.navigate(['./theme/colors'])
+    this.router.navigate(['./theme/colors']);
   }
   setOrder(value: string) {
     this.order = value;
