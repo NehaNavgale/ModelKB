@@ -12,14 +12,16 @@ const UploadSchema = new Schema({
   categoryId: {
     type: String
   },
-
   experiment: {
     type: String
   },
 
   fileReferenceIDs: [
     Schema.Types.ObjectId
-  ]
+  ],
+  metaID:{
+    type: String
+  }
 });
 
 const uploadFile =  mongoose.model('uploads', UploadSchema);

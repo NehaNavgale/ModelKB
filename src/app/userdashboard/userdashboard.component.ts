@@ -79,7 +79,7 @@ export class UserdashboardComponent implements OnInit {
     this.router.navigate(['./viewmodeldashboard']);
   }
   ngOnInit() {
-    this.viprahubService.searchUserModels(this.loginsuersInfo.userInfo.emailID).subscribe(res => {
+    this.viprahubService.searchUserModels(this.loginsuersInfo.getUsers().emailID).subscribe(res => {
       console.log(res);
       this.viprahubService.searchResults = res;
     }, err => {

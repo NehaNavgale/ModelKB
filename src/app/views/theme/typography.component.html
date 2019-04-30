@@ -127,7 +127,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr data-toggle="tooltip" data-placement="right" title="Click to view model" (click)="viewModel(modelData._id)" style="pointer-events: fill;" *ngFor="let modelData of (vipraService.searchResults | orderBy:order)  ">
+  <tr data-toggle="tooltip" data-placement="right" title="Click to view model" (click)="viewModel(modelData.id)" style="pointer-events: fill;" *ngFor="let modelData of (vipraService.searchResults | orderBy:order)  ">
     <th scope="row">{{modelData.categoryID}}</th>
     <td>{{modelData.model_name}}</td>
     <td>{{modelData.Author}}</td>
