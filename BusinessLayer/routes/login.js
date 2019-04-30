@@ -25,7 +25,9 @@ userRouter.post('/',function (req, res, next) {
          })*/
         var temp = {
           emailID: data.emailID,
-          fullName: data.firstName + data.lastName
+          fullName: data.firstName + data.lastName,
+          uploadCount: data.uploadedModels,
+          downloadedCount: data.downloadedModels
         }
 
         res.json({message: "Success", user: temp});

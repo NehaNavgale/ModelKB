@@ -42,6 +42,8 @@ export class RegistrationComponent implements OnInit {
     userDetails.lastName = this.user.lastname;
     userDetails.password = this.user.password
     userDetails.confirmPassword = this.user.cpassword;
+    userDetails.uploadedModels = '0';
+    userDetails.downloadedModels = '0';
     if (this.user.email === '' && this.user.firstname === '' &&
         this.user.lastname === '' && this.user.password === '' &&
         this.user.cpassword === '') {

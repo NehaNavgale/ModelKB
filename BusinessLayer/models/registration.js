@@ -26,6 +26,12 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Password cannot be left blank'],
   },
+  uploadedModels:{
+    type: String
+  },
+  downloadedModels:{
+    type: String
+  },
   /*for encryption and decryption of password saved*/
   saltSecret: String
 

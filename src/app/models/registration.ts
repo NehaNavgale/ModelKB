@@ -4,4 +4,6 @@ export default class Registration {
   emailID: String;
   password: String;
   confirmPassword: String;
+  uploadedModels: String;
+  downloadedModels: String;
 }

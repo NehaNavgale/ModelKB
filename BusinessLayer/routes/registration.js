@@ -15,4 +15,12 @@ userRouter.post('/', function (req, res, next) {
     });
 })
 
+userRouter.put('/uploadCount', function (req, res, next) {
+  let user = new User(req.body);
+  User.update(req.params.userEmail, { $set: {'uploadedModels': req.body.uploadCount} }, function (err,post){
+    if (err) return next(err);
+    res.json(post);
+  })
+})
+
 module.exports = userRouter;

@@ -10,7 +10,7 @@
           <button type="button" class="btn btn-transparent p-0 float-right">
             <i class="fa fa-upload fa-2x"></i>
           </button>
-          <div class="text-value">9</div>
+          <div class="text-value">{{this.userInfoService.userInfo.uploadedCount}}</div>
           <div>Models uploaded by you</div>
         </div>
         <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
@@ -32,7 +32,7 @@
               <i class="fa fa-download fa-2x"></i>
             </button>
           </div>
-          <div class="text-value">200</div>
+          <div class="text-value">{{this.userInfoService.userInfo.downloadedCount}}</div>
           <div>Downloaded by others</div>
         </div>
         <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
@@ -97,67 +97,93 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          Top 10 mostly Viewed models
+          Top 10 highly rated models
         </div>
         <div class="card-body">
-          <div class="row">
+          <!--<div class="row">-->
 
-                <div class="col-sm-3">
-                  <div class="callout callout-info">
-                    <small class="text-muted">New Clients</small>
-                    <br>
-                    <strong class="h4">9,123</strong>
-                  </div>
-                </div>
-                <div class="col-sm-3">
-                  <div class="callout callout-danger">
-                    <small class="text-muted">Recuring Clients</small>
-                    <br>
-                    <strong class="h4">22,643</strong>
-                  </div>
-                </div>
-                <div class="col-sm-3">
-                  <div class="callout callout-warning">
-                    <small class="text-muted">Pageviews</small>
-                    <br>
-                    <strong class="h4">78,623</strong>
-                  </div>
-                </div>
-                <div class="col-sm-3">
-                  <div class="callout callout-success">
-                    <small class="text-muted">Comments</small>
-                    <br>
-                    <strong class="h4">400</strong>
-                  </div>
-                </div>
+                <!--<div class="col-sm-3">-->
+                  <!--<div class="callout callout-info">-->
+                    <!--<small class="text-muted">New Clients</small>-->
+                    <!--<br>-->
+                    <!--<strong class="h4">9,123</strong>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-sm-3">-->
+                  <!--<div class="callout callout-danger">-->
+                    <!--<small class="text-muted">Recuring Clients</small>-->
+                    <!--<br>-->
+                    <!--<strong class="h4">22,643</strong>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-sm-3">-->
+                  <!--<div class="callout callout-warning">-->
+                    <!--<small class="text-muted">Pageviews</small>-->
+                    <!--<br>-->
+                    <!--<strong class="h4">78,623</strong>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-sm-3">-->
+                  <!--<div class="callout callout-success">-->
+                    <!--<small class="text-muted">Comments</small>-->
+                    <!--<br>-->
+                    <!--<strong class="h4">400</strong>-->
+                  <!--</div>-->
+                <!--</div>-->
 
-          </div>
-          <br>
-          <table class="table table-hover">
-            <thead class="thead-light">
-              <tr>
-                <th>Category</th>
-                <th>Model Name</th>
-                <th>Model Brief Desc</th>
-              </tr>
+          <!--</div>-->
+          <!--<br>-->
+          <!--<table class="table table-hover">-->
+            <!--<thead class="thead-light">-->
+              <!--<tr>-->
+                <!--<th>Category</th>-->
+                <!--<th>Model Name</th>-->
+                <!--<th>Model Brief Desc</th>-->
+              <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr data-toggle="tooltip" data-placement="right" title="Click to view model"  style="pointer-events: fill;">-->
+              <!--<th>AI</th>-->
+              <!--<td>ModelName</td>-->
+              <!--<td>DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<th>AI</th>-->
+              <!--<td>ModelName</td>-->
+              <!--<td>DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+              <!--<th>AI</th>-->
+              <!--<td>ModelName</td>-->
+              <!--<td>DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription</td>-->
+
+            <!--</tr>-->
+            <!--</tbody>-->
+          <!--</table>-->
+          <table class="table table-bordered  table-hover mt-2" style="background: white">
+            <thead style="background: #1c214b; color: white">
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Model Name</th>
+              <th scope="col">Accuracy</th>
+              <th scope="col">Optimizer</th>
+              <th scope="col">Framework</th>
+              <th scope="col">Year</th>
+              <th scope="col">Rating</th>
+              <!--<th scope="col">Brief Desc</th>-->
+              <!--<th scope="col">Rating</th>-->
+            </tr>
             </thead>
             <tbody>
-            <tr data-toggle="tooltip" data-placement="right" title="Click to view model"  style="pointer-events: fill;">
-              <th>AI</th>
-              <td>ModelName</td>
-              <td>DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription</td>
-            </tr>
-            <tr>
-              <th>AI</th>
-              <td>ModelName</td>
-              <td>DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription</td>
-            </tr>
-            <tr>
-              <th>AI</th>
-              <td>ModelName</td>
-              <td>DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription</td>
-
-            </tr>
+            <!--<tr data-toggle="tooltip" data-placement="right" title="Click to view model" style="pointer-events: fill;" *ngFor="let modelData of this.vipraService.searchResults">-->
+              <!--<th scope="row">{{modelData.categoryID}}</th>-->
+              <!--<td>{{modelData.model_name}}</td>-->
+              <!--<td>{{modelData.AccuracyValue}}</td>-->
+              <!--<td>{{modelData.Optimizer}}</td>-->
+              <!--<td>{{modelData.framework}}</td>-->
+              <!--<td>{{modelData.Year}}</td>-->
+              <!--<td>{{modelData.Rating}}</td>-->
+            <!--</tr>-->
             </tbody>
           </table>
         </div>

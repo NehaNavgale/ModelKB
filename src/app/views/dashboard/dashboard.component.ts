@@ -4,15 +4,13 @@ import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import {UploadDownloadComponent} from "../../upload/upload.component";
 import { DialogService } from '../../dialog.service';
-
+import {LoggedinUserInfoService} from '../../services/loggedin-user-info.service';
 
 @Component({
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-
-  constructor(private dialogService: DialogService){
-
+  constructor(private dialogService: DialogService, private userInfoService: LoggedinUserInfoService){
   }
 
   radioModel: string = 'Month';
