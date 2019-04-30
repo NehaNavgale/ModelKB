@@ -31,6 +31,11 @@ export class ColorsComponent implements OnInit {
        this.modelObj = data;
      });
   }
+  ngOnInit() {
+    /*this.modelID = localStorage.getItem('modelID');
+    this.getComments(this.modelID);*/
+  }
+// posting Comments related to experiments
   postComment() {
     this.loggedInUserInfo = this.loggedinUserInfoService.getUsers();
     this.modelID = localStorage.getItem('modelID');
@@ -47,24 +52,14 @@ export class ColorsComponent implements OnInit {
     commentObj.emailID = this.loggedInUserInfo.emailID;
     commentObj.fullName = this.loggedInUserInfo.fullName;
     console.log('Before service call', commentObj);
-
     this.http.post(`${this.uri}/postComments`, commentObj, httpOptions).subscribe(data => {
       console.log(data);
       this.getComments(this.modelID);
-     /* this.http.get(`${this.uri}/getAllComments?modelID=` + this.modelID, httpOptions).subscribe(res => {
-        this.expComments =  res;
-        return this.expComments;
-        console.log('getresult', this.expComments);
-      });*/
+      this.comment = "";
     });
   }
-  public themeColors() {
-  }
 
-  ngOnInit() {
-    this.modelID = localStorage.getItem('modelID');
-    this.getComments(this.modelID);
-  }
+//Fetching comments based on experiment
   getComments(id) {
     this.http.get(`${this.uri}/getAllComments/${id}`, httpOptions).subscribe(res => {
       this.expComments =  res;

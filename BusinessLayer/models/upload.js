@@ -18,7 +18,10 @@ const UploadSchema = new Schema({
 
   fileReferenceIDs: [
     Schema.Types.ObjectId
-  ]
+  ],
+  metaID:{
+    type: String
+  }
 });
 
 const uploadFile =  mongoose.model('uploads', UploadSchema);

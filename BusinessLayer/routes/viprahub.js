@@ -4,6 +4,7 @@ var router = express.Router();
 var modelsMetadata = require('../models/modelsMetadata.js');
 var usermodels = require('../models/upload.js');
 var categories = require('../models/categories.js');
+var upload = require('../models/upload.js');
 
 // Model metadata CRUD
 
@@ -57,10 +58,6 @@ router.get('/getAll', function (req, res, next) {
   }
 });
 
-router.get('/demo', function (req, res, next) {
-  console.log("hai");
-  res.json("hai");
-});
 
 // { "$text": { "$search": q , "$caseSensitive": false} }
 
@@ -90,6 +87,28 @@ router.get('/getModels', function (req, res, next) {
 
 
 router.get('/getModel/:modelID', function(req, res, next){
+  // var urls = {};
+  // upload.findOne({"metaID": req.params.modelID}, function (err, data) {
+  //   for(var i in data.fileReferenceIDs){
+  //     upload.files.findById({"_id" : data.fileReferenceIDs[i]}, (err,file)=> {
+  //
+  //       if(/_architecture/.test(file.filename)){
+  //         urls.Architecture  = data.fileReferenceIDs[i];
+  //       }
+  //       else if(/_accuracy/.test(file.filename)){
+  //         urls.Architecture  = data.fileReferenceIDs[i];
+  //       }
+  //       else if(/_loss/.test(file.filename)){
+  //         urls.Architecture  = data.fileReferenceIDs[i];
+  //       }
+  //       else if(/_confusion_matrix/.test(file.filename)){
+  //         urls.Architecture  = data.fileReferenceIDs[i];
+  //       }
+  //
+  //     });
+  //   }
+  //    //upload.files.find()
+  // })
   modelsMetadata.findById({"_id": req.params.modelID}, function (err,post){
     if (err) return next(err);
     //data.URL = "http://localhost:4000/uploadToMongo/chunks/ahhgshgs";
