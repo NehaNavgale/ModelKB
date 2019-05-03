@@ -3,11 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng build && nodemon ./BusinessLayer/server.js",
+    "start": "node app.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "postinstall": "ng build --aot --prod",
     "e2e": "ng e2e"
+  },
+  "engines": {
+    "node": "~11.7.0",
+    "npm": "~6.5.0"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +39,7 @@
     "chart.js": "^2.7.3",
     "core-js": "^2.5.4",
     "crypto": "^1.0.1",
+    "express": "^4.16.4",
     "file-saver": "^2.0.1",
     "firebase": "^5.8.5",
     "flag-icon-css": "^3.3.0",
@@ -55,6 +61,7 @@
     "ngx-perfect-scrollbar": "^7.2.1",
     "ngx-slick-carousel": "^0.4.4",
     "nodemon": "^1.18.11",
+    "path": "^0.12.7",
     "popper": "^1.0.1",
     "rxjs": "~6.3.3",
     "simple-line-icons": "^2.4.1",
