@@ -21,10 +21,10 @@ export class LoggedinUserInfoService {
      console.log('Inside SetUsers');
      console.log(this.userInfo);
 
-    /*this.userInfo.emailID = data.user.emailID;  
-    this.userInfo.fullName = data.user.fullName;
-    console.log('Inside SetUsers');
-    console.log(this.userInfo);*/
+    // this.userInfo.emailID = data.user.emailID;
+    // this.userInfo.fullName = data.user.fullName;
+    // console.log('Inside SetUsers');
+    // console.log(this.userInfo);
     localStorage.setItem('LoggedinEmailId', data.user.emailID);
     localStorage.setItem('LoggedinFullName', data.user.fullName );
 
