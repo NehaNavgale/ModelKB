@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class LoggedinUserInfoService {
 
-  private userInfo = {
+  userInfo = {
     'emailID': '',
     'fullName': '',
     'uploadedCount': '',

@@ -47,6 +47,8 @@ import { ViewmodeldashboardComponent } from './viewmodeldashboard/viewmodeldashb
 import {MatTabsModule, MatSidenavModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material';
 import {NgbTabset} from '@ng-bootstrap/ng-bootstrap';
+import {ProgressSpinnerDialogComponent} from './progress-spinner/progress-spinner-dialog.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -83,7 +85,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     FileSelectDirective,
     FileDropDirective,
     ShowImageComponent,
-    ViewmodeldashboardComponent
+    ViewmodeldashboardComponent,
+    ProgressSpinnerDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -110,6 +113,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     MatSidenavModule,
     MatTabsModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
     CarouselModule.forRoot()
   ],
   providers: [
@@ -120,6 +124,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     FilesService,
     ModelsService
   ],
+  entryComponents: [ProgressSpinnerDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

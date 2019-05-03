@@ -43,21 +43,21 @@ export class FilesService {
   }
 
   showFileNames(): Observable<any> {
-    console.log("files service inside")
+    console.log('files service inside');
     return this.http.get(`${apiFiles}`, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
 
   getFileBasedOnFileReferenceId(fileReferenceID: any): Observable<any> {
-    console.log("inside files service based on filereferenceID"+`${apiFiles}/${fileReferenceID}`);
+    console.log('inside files service based on filereferenceID' + `${apiFiles}/${fileReferenceID}`);
     return this.http.get(`${apiFiles}/${fileReferenceID}`, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
 
-  getChunkBasedOnFileId(fileID: any): Observable<any> {
-    console.log("inside files service based on getChunkBasedOnFileId"+`${apiChunks}/${fileID}`);
-    return this.http.get(`${apiChunks}/${fileID}`, {responseType: 'blob'});
+  getChunkBasedOnFileId(fileName: any): Observable<any> {
+    console.log('inside files service based on getChunkBasedOnFileId' + `${apiChunks}/${fileName}`);
+    return this.http.get(`${apiChunks}/${fileName}`, {responseType: 'blob'});
   }
 }

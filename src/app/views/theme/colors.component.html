@@ -2,22 +2,11 @@
   .checked {
     color: orange;
   }
-  .commentsDiv{
-    border: 1px;
-    border-radius: 0rem !important;
-    box-shadow: 1px 1px 1px 1px #9e9a9a8f;
-    /* transition: all 0.3s ease; */
-    background-color: #ffffff;
-    padding: 12px;
-  }
-  .tbold{
-    font-weight: bold;
-  }
 </style>
 <!--Model Overview-->
 <div class="card">
-  <div class="card-body"  *ngIf="modelObj">
-    <h5 class="card-title">{{modelObj.model_name}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">Experiment</h5>
     <div class="pull-right">
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
@@ -25,9 +14,9 @@
       <span class="fa fa-star"></span>
       <span class="fa fa-star"></span>
     </div>
-    <h6 class="card-subtitle mb-2 text-muted">{{modelObj.category}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">{{modelObj.categoryID}}</h6>
     <p class="card-text"></p>
-    <button mat-flat-button style="background-color: #1c214bad;color: white" (click)="downloadModel()"> <i class="fa fa-download"></i> Download</button>
+    <button mat-flat-button style="background-color: #1c214bad;color: white" (click)="downloadFilesInZip()" target="_blank"> <i class="fa fa-download"></i> Download</button>
   </div>
 </div>
 <!--Model detailed view-->
@@ -37,110 +26,66 @@
     <tab heading="OVERVIEW">
       <br/>
       <div style="padding-left: 20px">
-        <table>
-          <tbody>
-            <tr>
-              <td class="tbold">Model Name</td>
-              <td>:</td>
-              <td>{{modelObj.model_name || 'N/A'}}</td>
-            </tr>
-            <tr>
-              <td class="tbold">Experiment</td>
-              <td>:</td>
-              <td>{{modelObj.experiment || 'N/A'}}</td>
-            </tr>
-            <tr>
-              <td class="tbold">Author</td>
-              <td>:</td>
-              <td>{{modelObj.Author || 'N/A'}}</td>
-            </tr>
-            <tr>
-              <td class="tbold">Category</td>
-              <td>:</td>
-              <td>{{modelObj.categoryID || 'N/A'}}</td>
-            </tr>
-            <tr>
-              <td class="tbold">Framework</td>
-              <td>:</td>
-              <td>{{modelObj.framework || 'N/A'}}</td>
-            </tr>
-            <tr>
-              <td class="tbold">Size</td>
-              <td>:</td>
-              <td>{{modelObj.size || 'N/A'}}</td>
-            </tr>
-            <tr>
-              <td class="tbold">Input Tensors</td>
-              <td>:</td>
-              <td>{{modelObj.InputTensors || 'N/A'}}</td>
-            </tr>
-            <tr>
-              <td class="tbold">Output Tensors</td>
-              <td>:</td>
-              <td>{{modelObj.OutputTensor || 'N/A'}}</td>
-            </tr>
-            <tr>
-              <td class="tbold">Optimizer</td>
-              <td>:</td>
-              <td>{{modelObj.Optimizer || 'N/A'}}</td>
-            </tr>
-            <tr>
-              <td class="tbold">Loss Function</td>
-              <td>:</td>
-              <td>{{modelObj.LossFunction || 'N/A'}}</td>
-            </tr>
-            <tr>
-              <td class="tbold">Accuracy Value</td>
-              <td>:</td>
-              <td> {{modelObj.AccuracyValue || 'N/A'}}</td>
-            </tr>
-            <tr>
-              <td class="tbold">Loss Value</td>
-              <td>:</td>
-              <td>{{modelObj.LossValue || 'N/A'}}</td>
-            </tr>
-            <tr>
-              <td class="tbold">Year</td>
-              <td>:</td>
-              <td>{{modelObj.Year || 'N/A'}}</td>
-            </tr>
-          </tbody>
-        </table>
+        <p>Model Name : {{modelObj.model_name}}</p>
+        <p>Author : {{modelObj.Author}}</p>
+        <p>Category : {{modelObj.categoryID}}</p>
+        <p>Framework : {{modelObj.framework}}</p>
+        <p>Size : {{modelObj.size}}</p>
+        <p>Input Tensors : {{modelObj.InputTensors}}</p>
+        <p>Output Tensors : {{modelObj.OutputTensor}}</p>
+        <p>Optimizer : {{modelObj.Optimizer}}</p>
+        <p>Loss Function : {{modelObj.LossFunction}}</p>
+        <p>Accuracy Value : {{modelObj.AccuracyValue}}</p>
+        <p>Loss Value : {{modelObj.LossValue}}</p>
+        <p>Year : {{modelObj.Year}}</p>
       </div>
+      <!--<div>
+        <h4>DESCRIPTION</h4>
+        <p>{{modelObj.Overview.DESCRIPTION}}</p>
+      </div>
+       <div>
+         <h4>APPLICATION</h4>
+         <p>{{modelObj.Overview.APPLICATION}}</p>
+       </div>
+       <div>
+         <h4>TASK</h4>
+         <p>{{modelObj.Overview.TASK}}</p>
+       </div>
+       <div>
+         <h4>TYPE</h4>
+         <p>{{modelObj.Overview.TYPE}}</p>
+       </div>
+       <div>
+         <h4>ARCHITECTURE</h4>
+         <p>{{modelObj.Overview.ARCHITECTURE}}</p>
+       </div>-->
     </tab>
-
     <tab heading="PUBLICATION">
-      <p>Comming Soon</p>
+      <!-- <div>
+         <h4>TITLE</h4>
+         <p>{{modelObj.Publication.TITLE}}</p>
+       </div>
+       <div>
+         <h4>AUTHOR</h4>
+         <p>{{modelObj.Publication.AUTHORS}}</p>
+       </div>
+       <div>
+         <h4>ABSTRACT</h4>
+         <p>{{modelObj.Publication.ABSTRACT}}</p>
+       </div>
+       <div>
+         <h4>YEAR</h4>
+         <p>{{modelObj.Publication.YEAR}}</p>
+       </div>-->
     </tab>
-
     <tab heading="ARCHITECTURE">
       <img [src]="modelObj.URL"/>
     </tab>
-
     <tab heading="TEST">
       <h6>Comming Soon....</h6>
     </tab>
-
     <tab heading="COMMENTS">
-      <div *ngFor="let expComments of expComments">
-        <div class="commentsDiv">
-          <p style="color: #6b6363">
-            <i class="fa fa-user fa-x"></i>
-            <i>
-               <strong>{{expComments.fullName}}</strong>({{expComments.emailID}}) posted comment on <strong>{{expComments.postedDate}}</strong>
-            </i>
-          </p>
-          <span>
-          {{expComments.comments}}
-          </span>
-        </div>
-      </div>
-      <br/>
-      <div class="row" style="padding-left: 12px">
-        <textarea class="form-control col-lg-8" name="comment" [(ngModel)]="comment"></textarea>
-        <button class="btn btn-info float-right" style="color: white" (click)="postComment()"><b>Comment</b></button>
-      </div>
+      <h6>Comming Soon....</h6>
     </tab>
   </tabset>
 </div>
-
