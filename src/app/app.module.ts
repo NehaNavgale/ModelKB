@@ -125,6 +125,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     ModelsService
   ],
   entryComponents: [ProgressSpinnerDialogComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }
