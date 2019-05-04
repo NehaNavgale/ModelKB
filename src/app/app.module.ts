@@ -85,7 +85,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     ShowImageComponent,
     ViewmodeldashboardComponent,
     ProgressSpinnerDialogComponent,
-    FilterpipePipe
+    FilterpipePipe,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -125,7 +126,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     ModelsService
   ],
   entryComponents: [ProgressSpinnerDialogComponent],
-  bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
+  bootstrap: [AppComponent]
+  // schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }
