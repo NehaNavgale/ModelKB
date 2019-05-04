@@ -10,7 +10,7 @@ import {LoggedinUserInfoService} from '../../services/loggedin-user-info.service
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-  constructor(private dialogService: DialogService, private userInfoService: LoggedinUserInfoService){
+  constructor(private dialogService: DialogService, public userInfoService: LoggedinUserInfoService){
   }
 
   radioModel: string = 'Month';

@@ -65,7 +65,7 @@ export class UserdashboardComponent implements OnInit {
     this.barChartData = clone;
   }
 
-  constructor(private dialogService: DialogService, private loginsuersInfo: LoggedinUserInfoService,
+  constructor(private dialogService: DialogService, public loginsuersInfo: LoggedinUserInfoService,
               private viprahubService: ViprahubService , private router: Router) {}
 
   /**

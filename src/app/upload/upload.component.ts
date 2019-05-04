@@ -17,7 +17,7 @@ export class UploadDownloadComponent implements OnInit {
   private files = [];
   /*private url = '/uploadToMongo/files';*/
   private url = 'http://localhost:4000/uploadToMongo/files';
-  private uploader: FileUploader;
+  public uploader: FileUploader;
   public categories: any[];
   public allModelsFromDb: any;
   // public selectedId: any;

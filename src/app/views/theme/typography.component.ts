@@ -25,7 +25,7 @@ export class TypographyComponent {
   ratingsList = [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}];
   modelObj;
 
-  constructor(private http: HttpClient, private vipraService: ViprahubService, private router: Router,
+  constructor(private http: HttpClient, public vipraService: ViprahubService, private router: Router,
               private orderPipe: OrderPipe, private userInfo: LoggedinUserInfoService, private viewmodelDashboardService: ViewmodeldashboardService) {
     // this.listOfModels = this.orderPipe.transform(this.vipraService.searchResults, this.order);
     console.log(userInfo.getUsers());

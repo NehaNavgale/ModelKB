@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   search = { text: ''};
   order = 'AccuracyValue';
 
-  constructor(private http: HttpClient, private vipraService: ViprahubService, private router: Router, private orderPipe: OrderPipe) {
+  constructor(private http: HttpClient, public vipraService: ViprahubService, private router: Router, private orderPipe: OrderPipe) {
   }
   ngOnInit() {
     this.listOfModels = this.orderPipe.transform(this.vipraService.searchResults, this.order);
