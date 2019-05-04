@@ -15,6 +15,6 @@ import { HomeRoutingModule } from './home-routing.module';
     BsDropdownModule,
     ButtonsModule.forRoot()
   ],
-  declarations: [ HomeComponent ]
+  declarations: [  ]
 })
 export class DashboardModule { }
