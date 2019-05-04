@@ -74,7 +74,6 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
   declarations: [
     AppComponent,
     APP_CONTAINERS,
-    HomeComponent,
     LoginComponent,
     RegistrationComponent,
     SearchComponent,
