@@ -30,9 +30,9 @@ import { HomeFooterComponent } from './home-footer/home-footer.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { OrderModule } from 'ngx-order-pipe';
 import {HttpClientModule} from '@angular/common/http';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireAuthModule} from '@angular/fire/auth';
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFirestoreModule } from 'angularfire2/firestore';
+// import { AngularFireAuthModule} from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import {UploadDownloadComponent} from './upload/upload.component';
 import { FileSelectDirective, FileDropDirective , FileUploadModule} from 'ng2-file-upload';
@@ -49,6 +49,7 @@ import {MatButtonModule} from '@angular/material';
 import {NgbTabset} from '@ng-bootstrap/ng-bootstrap';
 import {ProgressSpinnerDialogComponent} from './progress-spinner/progress-spinner-dialog.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {FilterpipePipe} from './filterpipe.pipe';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -89,6 +90,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     BrowserModule,
     AppRoutingModule,
     AppAsideModule,
+    FilterpipePipe,
     AppBreadcrumbModule.forRoot(),
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
@@ -101,9 +103,9 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     OrderModule,
     ChartsModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+    // AngularFireModule.initializeApp(environment.firebase),
+    // AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    // AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     MatDialogModule,
     BrowserAnimationsModule,
     NgbModule,
