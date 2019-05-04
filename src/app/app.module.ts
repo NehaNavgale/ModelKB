@@ -35,7 +35,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule} from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import {UploadDownloadComponent} from './upload/upload.component';
-import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
+import { FileSelectDirective, FileDropDirective , FileUploadModule} from 'ng2-file-upload';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogService } from './dialog.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -82,8 +82,6 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     HomeHeaderComponent,
     HomeFooterComponent,
     UploadDownloadComponent,
-    FileSelectDirective,
-    FileDropDirective,
     ShowImageComponent,
     ViewmodeldashboardComponent,
     ProgressSpinnerDialogComponent
@@ -114,6 +112,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     MatTabsModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    FileUploadModule,
     CarouselModule.forRoot()
   ],
   providers: [
