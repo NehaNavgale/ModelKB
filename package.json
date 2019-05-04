@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "heroku-postbuild": "ng build --prod",
+    "postinstall": "ng build --prod",
     "e2e": "ng e2e"
   },
   "engines": {
@@ -16,6 +16,9 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-angular": "^0.13.8",
+    "@angular/cli": "~7.2.3",
+    "@angular/compiler-cli": "~7.2.0",
     "@angular/animations": "^7.2.9",
     "@angular/cdk": "^7.3.5",
     "@angular/common": "~7.2.0",
@@ -70,12 +73,11 @@
     "tsickle": "^0.34.3",
     "tslib": "^1.9.0",
     "typeface-poppins": "0.0.54",
+    "typescript": "~3.2.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.13.8",
-    "@angular/cli": "~7.2.3",
-    "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
@@ -92,7 +94,6 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
-    "tslint": "~5.11.0",
-    "typescript": "~3.2.2"
+    "tslint": "~5.11.0"
   }
 }
