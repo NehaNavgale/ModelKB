@@ -84,13 +84,13 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     UploadDownloadComponent,
     ShowImageComponent,
     ViewmodeldashboardComponent,
-    ProgressSpinnerDialogComponent
+    ProgressSpinnerDialogComponent,
+    FilterpipePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AppAsideModule,
-    FilterpipePipe,
     AppBreadcrumbModule.forRoot(),
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
