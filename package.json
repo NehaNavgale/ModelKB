@@ -10,10 +10,6 @@
     "heroku-postbuild": "ng build --prod",
     "e2e": "ng e2e"
   },
-  "engines": {
-    "node": "~11.7.0",
-    "npm": "~6.5.0"
-  },
   "private": true,
   "dependencies": {
     "@angular-devkit/build-angular": "^0.13.8",
@@ -93,7 +89,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "karma-phantomjs-launcher": "^1.0.4",
     "protractor": "~5.4.0",
-    "terser": "3.17.0",
+    "terser": "^3.14.1",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0"
   },
