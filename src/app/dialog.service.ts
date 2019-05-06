@@ -18,6 +18,13 @@ export class DialogService {
 
     return dialog;
   }
+  openRatingDialogue(content: any, config: MatDialogConfig = {}): MatDialogRef<any> {
+    const dialog = this.dialog.open(content, config);
+
+    this.stack.push(dialog);
+
+    return dialog;
+  }
   /**
    * Clear all active dialogs from the stack.
    */

@@ -17,8 +17,13 @@ export class DefaultLayoutComponent implements OnDestroy {
   public element: HTMLElement;
   search = { text: ''};
   userEmail;
+  newuserinfo;
+  userprofileInfo;
+  hidden = false;
   constructor(public router: Router, private http: HttpClient,
               private userInfo: LoggedinUserInfoService, public vipraService: ViprahubService) {
+    this.userprofileInfo = this.userInfo.getUsers();
+   /* console.log("Profile", this.userprofileInfo.emailID);*/
 
   // @Inject(DOCUMENT) _document?: any
 
@@ -37,7 +42,11 @@ export class DefaultLayoutComponent implements OnDestroy {
     this.vipraService.getSearchResults(this.search.text);
     this.router.navigate(['/theme/search']);
   }
-
+  logout(){
+    this.userInfo.logout();
+    this.newuserinfo= this.userInfo.getUsers();
+    this.router.navigate(['./login']);
+  }
   ngOnDestroy(): void {
     this.changes.disconnect();
   }

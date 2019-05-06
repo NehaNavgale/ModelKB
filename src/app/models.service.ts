@@ -7,7 +7,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const apiModels = '/uploadToMongo';
+const apiModels = 'http://localhost:4000/uploadToMongo';
 const apiUrl = 'http://localhost:4000/api';
 
 @Injectable()

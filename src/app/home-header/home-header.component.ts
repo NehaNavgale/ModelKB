@@ -16,6 +16,7 @@ export class HomeHeaderComponent implements OnInit {
   public hideSignup = false;
   search = { text: ''};
 
+
   constructor(public router: Router, private http: HttpClient, public vipraService: ViprahubService, private orderPipe: OrderPipe) { }
   searchC = new SearchComponent(this.http, this.vipraService, this.router, this.orderPipe);
   logInOut() {

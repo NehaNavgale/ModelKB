@@ -1,4 +1,3 @@
-
 import { Component, Inject, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import {MatTabsModule, MatSidenavModule} from '@angular/material';
@@ -11,6 +10,13 @@ import { saveAs } from 'file-saver';
 import * as JSZip from 'jszip';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import {ProgressSpinnerDialogComponent} from '../../progress-spinner/progress-spinner-dialog.component';
+import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import { RatingsComponent} from "../../ratings/ratings.component";
+import {DialogService} from "../../dialog.service";
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @NgModule({
   imports: [
@@ -26,25 +32,58 @@ export class ColorsComponent implements OnInit {
   modelID;
   downloadCount;
   public experiment = 'exp1';
+  Author;
+  loggedInUserInfo;
+  comment;
+  restrictRating;
+  public expComments;
+  currentRate;
+
+  uri = 'http://localhost:4000/comments';
 
   constructor(
+    private dialogService: DialogService,
     private viewmodelDashboardService: ViewmodeldashboardService,
     private viprahubService: ViprahubService,
     private filesService: FilesService,
     private modelsService: ModelsService,
     private loggedinUserInfoService: LoggedinUserInfoService,
+    private http: HttpClient,
     private dialog: MatDialog
   ) {
     this.viprahubService.getModelById(localStorage.getItem('modelID')).subscribe(data => {
       this.modelObj = data;
       this.downloadCount = this.modelObj.downloadedCount;
+      this.storeModelObj();
+      console.log(this.getLocalModelObj());
     });
+    console.log(this.currentRate);
   }
 
   public themeColors() {
   }
 
+  storeModelObj(){
+    localStorage.setItem('Author', this.modelObj.Author);
+  }
+  getLocalModelObj(){
+    this.Author = localStorage.getItem('Author');
+    return this.Author;
+  }
+  public rating() {
+    this.loggedInUserInfo = this.loggedinUserInfoService.getUsers();
+    this.Author= localStorage.getItem('Author');
+    if(this.loggedInUserInfo.emailID == this.Author){
+      this.restrictRating = true;
+    }else{
+      this.dialogService.openRatingDialogue(RatingsComponent, {});
+    }
+
+  }
+
   ngOnInit() {
+    this.modelID = localStorage.getItem('modelID');
+    this.getComments(this.modelID);
   }
   updateDownloadCount() {
     this.downloadCount = parseInt(this.downloadCount, 10) + 1;
@@ -95,5 +134,48 @@ export class ColorsComponent implements OnInit {
         });
       });
     });
+  }
+
+  // getRating() return rating from 0-5
+
+// posting Comments related to experiments
+  postComment() {
+    this.loggedInUserInfo = this.loggedinUserInfoService.getUsers();
+    this.modelID = localStorage.getItem('modelID');
+    const commentObj = {
+      'comments': '',
+      'modelID' : '',
+      'emailID' : '',
+      'fullName' : '',
+      'postedDate': ''
+    };
+    const responseComments = {};
+    commentObj.comments = this.comment;
+    commentObj.modelID = this.modelID;
+    commentObj.emailID = this.loggedInUserInfo.emailID;
+    commentObj.fullName = this.loggedInUserInfo.fullName;
+    console.log('Before service call', commentObj);
+    this.http.post(`${this.uri}/postComments`, commentObj, httpOptions).subscribe(data => {
+      console.log(data);
+      this.getComments(this.modelID);
+      this.comment = "";
+    });
+  }
+
+//Fetching comments based on experiment
+  getComments(id) {
+    this.http.get(`${this.uri}/getAllComments/${id}`, httpOptions).subscribe(res => {
+      this.expComments =  res;
+      return this.expComments;
+      console.log('getresult', this.expComments);
+    });
+  }
+  downloadModel() {
+
+    window.open('http://localhost:4000/uploadToMongo/zipfiles');
+
+    // this.http.get('http://localhost:4000/uploadToMongo/zipfiles').subscribe(res => {
+    //
+    // });
   }
 }

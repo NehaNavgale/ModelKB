@@ -92,7 +92,7 @@ router.post('/', function (req, res, next) {
 router.get('/getModels', function (req, res, next) {
    var userid = req.query.userid;
    usermodels.find({"userId":userid}, function (err, data) {
-     console.log(data);
+     /*console.log(data);*/
        if (err) return next(err);
        res.json(data);
      });

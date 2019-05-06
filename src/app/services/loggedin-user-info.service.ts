@@ -18,6 +18,7 @@ export class LoggedinUserInfoService {
      // this.userInfo.uploadedCount = data.user.uploadCount;
      // this.userInfo.downloadedCount = data.user.downloadedCount;
      console.log('Inside SetUsers');
+     console.log(data);
      console.log(this.userInfo);
 
     // this.userInfo.emailID = data.user.emailID;
@@ -34,5 +35,8 @@ export class LoggedinUserInfoService {
     this.userInfo.uploadedCount = localStorage.getItem('UploadedModels');
     // console.log(this.userInfo);
     return this.userInfo;
+  }
+  logout(){
+     localStorage.removeItem('LoggedinEmailId');
   }
 }
