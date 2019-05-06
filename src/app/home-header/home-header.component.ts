@@ -28,7 +28,7 @@ export class HomeHeaderComponent implements OnInit {
   getResults() {
     this.vipraService.searchText = this.search.text;
     this.vipraService.getSearchResults(this.search.text);
-    this.router.navigate(['/theme/typography']);
+    this.router.navigate(['/theme/search']);
   }
   ngOnInit() {
     if (this.router.url === '/userdashboard') {

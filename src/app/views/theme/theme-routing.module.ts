@@ -25,7 +25,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'typography',
+        path: 'search',
         component: TypographyComponent,
         data: {
           title: 'Search Model'

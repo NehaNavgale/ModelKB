@@ -8,6 +8,7 @@ import {RegistrationService} from '../services/registration.service';
 import { LoggedinUserInfoService } from '../services/loggedin-user-info.service';
 import { Observable } from 'rxjs';
 import registration from '../models/registration';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-upload-download',
@@ -33,6 +34,7 @@ export class UploadDownloadComponent implements OnInit {
 
   constructor(
     private filesService: FilesService,
+    private router: Router,
     private registrationService: RegistrationService,
     private modelsService: ModelsService,
     private viprahubService: ViprahubService,
@@ -113,6 +115,8 @@ export class UploadDownloadComponent implements OnInit {
           });
       };
       this.IsFilesUploadedSuccessfully = true;
+      this.updateUploadCount()
+      this.router.navigate(['./dashboard']);
     }
   }
 }

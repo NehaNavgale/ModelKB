@@ -24,7 +24,8 @@ import {ProgressSpinnerDialogComponent} from '../../progress-spinner/progress-sp
 export class ColorsComponent implements OnInit {
   modelObj;
   modelID;
-  public experiment = 'Exp1';
+  downloadCount;
+  public experiment = 'exp1';
 
   constructor(
     private viewmodelDashboardService: ViewmodeldashboardService,
@@ -36,6 +37,7 @@ export class ColorsComponent implements OnInit {
   ) {
     this.viprahubService.getModelById(localStorage.getItem('modelID')).subscribe(data => {
       this.modelObj = data;
+      this.downloadCount = this.modelObj.downloadedCount;
     });
   }
 
@@ -44,8 +46,20 @@ export class ColorsComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  updateDownloadCount() {
+    this.downloadCount = parseInt(this.downloadCount, 10) + 1;
+    this.downloadCount = this.downloadCount.toString();
+    console.log(this.downloadCount);
+    const modelDetails = {
+      experiment: this.experiment,
+      downloadedCount: this.downloadCount
+    };
+    this.viprahubService.updateDownloadCount(modelDetails).subscribe(data => {
+      console.log('updated download count', + data);
+    });
+  }
   downloadFilesInZip() {
+    this.updateDownloadCount();
     const zipeFileName = this.experiment + '.zip';
     const zip: JSZip = new JSZip();
     const folder = zip.folder(this.experiment);

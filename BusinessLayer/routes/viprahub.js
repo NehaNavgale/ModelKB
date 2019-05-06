@@ -8,6 +8,7 @@ var upload = require('../models/upload.js');
 
 // Model metadata CRUD
 
+
 router.get('/getAllModels', function (req, res, next) {
   console.log('inside getAllModels')
   var userid = req.query.userID;
@@ -18,6 +19,14 @@ router.get('/getAllModels', function (req, res, next) {
   });
 });
 
+
+router.put('/downloadCount', function (req, res, next) {
+  console.log("details " + req.body.downloadedCount)
+  modelsMetadata.update({ experiment: req.body.experiment }, { $set: {'downloadedCount': req.body.downloadedCount} }, function (err,post){
+    if (err) return next(err);
+    res.json(post);
+  })
+})
 
 router.get('/getAll', function (req, res, next) {
   console.log("inside getAll");

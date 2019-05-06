@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   constructor(private orderPipe: OrderPipe, private modelsService: ModelsService, private http: HttpClient, private vipraService: ViprahubService, private dialogService: DialogService, public userInfoService: LoggedinUserInfoService){
   }
   userDetails;
+  downloadCount = 0;
   uploadedCount = localStorage.getItem('UploadedModels');
   allModelsBasedOnUserIdFromDb;
 
@@ -406,6 +407,9 @@ export class DashboardComponent implements OnInit {
       this.modelsService.getAllModelsForUser(this.userInfoService.getUsers().emailID).subscribe(response => {
         this.allModelsBasedOnUserIdFromDb = response;
         console.log('models' + this.allModelsBasedOnUserIdFromDb);
+        this.allModelsBasedOnUserIdFromDb.forEach(y => {
+          this.downloadCount = this.downloadCount + parseInt(y.downloadedCount, 10);
+        });
       });
 
       // this.modelsService.getModelsBasedOnUserID(this.userInfoService.getUsers().emailID).subscribe(response => {

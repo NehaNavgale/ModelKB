@@ -84,6 +84,10 @@ export class ViprahubService {
   getModelById(id) {
     return this.http.get(`${apiUrl}/getModel/${id}`, httpOptions);
   }
+  updateDownloadCount(modelDetails) {
+    console.log(modelDetails);
+    return this.http.put(`${apiUrl}/downloadCount`, modelDetails);
+  }
   // getUserModelsData(userid) {
   //   this.searchUserModels(userid).subscribe(res => {
   //     console.log(res);
