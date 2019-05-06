@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
         console.log(data);
         this.loggedInUserInfo.setUsers(data);
         // const userInfo = this.loggedInUserInfo.getUsers();
-        // console.log(userInfo);
         this.router.navigate(['./dashboard']);
         // @ts-ignore
         console.log(data.message);

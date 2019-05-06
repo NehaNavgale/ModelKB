@@ -9,7 +9,6 @@ export class LoggedinUserInfoService {
     'emailID': '',
     'fullName': '',
     'uploadedCount': '',
-    'downloadedCount': ''
   };
   constructor() { }
   setUsers(data) {
@@ -27,12 +26,12 @@ export class LoggedinUserInfoService {
     // console.log(this.userInfo);
     localStorage.setItem('LoggedinEmailId', data.user.emailID);
     localStorage.setItem('LoggedinFullName', data.user.fullName );
-
+    localStorage.setItem('UploadedModels', data.user.uploadCount);
   }
-
   getUsers() {
     this.userInfo.emailID = localStorage.getItem('LoggedinEmailId');
     this.userInfo.fullName = localStorage.getItem('LoggedinFullName');
+    this.userInfo.uploadedCount = localStorage.getItem('UploadedModels');
     // console.log(this.userInfo);
     return this.userInfo;
   }

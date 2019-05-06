@@ -4,18 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-import {ViprahubService} from '../../viprahub.service';
-import {HttpClient} from '@angular/common/http';
 
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import {MatButtonModule} from "@angular/material";
-import { OrderPipe } from 'ngx-order-pipe';
-import {Router} from '@angular/router';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   imports: [
     FormsModule,
+    CommonModule,
     DashboardRoutingModule,
     ChartsModule,
     BsDropdownModule,
@@ -25,11 +23,4 @@ import {Router} from '@angular/router';
   declarations: [ DashboardComponent ]
 })
 export class DashboardModule {
-  constructor(private orderPipe: OrderPipe, private vipraService: ViprahubService, private http: HttpClient) {
-    this.vipraService.getMetadata().subscribe(res => {
-      this.vipraService.searchResults = res;
-    }, err => {
-      console.log(err);
-    });
-  }
 }

@@ -4,8 +4,10 @@ import {  MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FilesService } from '../files.service';
 import { ViprahubService } from '../viprahub.service';
 import { ModelsService } from '../models.service';
+import {RegistrationService} from '../services/registration.service';
 import { LoggedinUserInfoService } from '../services/loggedin-user-info.service';
 import { Observable } from 'rxjs';
+import registration from '../models/registration';
 
 @Component({
   selector: 'app-upload-download',
@@ -13,7 +15,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./upload.component.css']
 })
 export class UploadDownloadComponent implements OnInit {
-
+  uploadCount;
   private files = [];
   /*private url = '/uploadToMongo/files';*/
   private url = 'http://localhost:4000/uploadToMongo/files';
@@ -31,11 +33,26 @@ export class UploadDownloadComponent implements OnInit {
 
   constructor(
     private filesService: FilesService,
+    private registrationService: RegistrationService,
     private modelsService: ModelsService,
     private viprahubService: ViprahubService,
     private loggedinUserInfoService: LoggedinUserInfoService,
     public dialogRef: MatDialogRef<UploadDownloadComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {}
+
+  updateUploadCount() {
+    this.uploadCount = this.loggedinUserInfoService.getUsers().uploadedCount;
+    this.uploadCount = parseInt(this.uploadCount, 10) + 1;
+    localStorage.setItem('UploadedModels', this.uploadCount);
+    console.log(this.uploadCount);
+    const userDetails = {
+      emailID: this.loggedinUserInfoService.getUsers().emailID,
+      uploadedModels: (this.uploadCount).toString()
+    };
+    this.registrationService.updateUploadCount(userDetails).subscribe(data => {
+      console.log('After Backend call', + data);
+    });
+  }
 
   ngOnInit() {
     this.uploader = new FileUploader({url: this.url});

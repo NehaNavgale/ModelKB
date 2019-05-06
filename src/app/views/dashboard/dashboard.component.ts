@@ -5,13 +5,20 @@ import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import {UploadDownloadComponent} from "../../upload/upload.component";
 import { DialogService } from '../../dialog.service';
 import {LoggedinUserInfoService} from '../../services/loggedin-user-info.service';
+import {OrderPipe} from 'ngx-order-pipe';
+import {ViprahubService} from '../../viprahub.service';
+import {HttpClient} from '@angular/common/http';
+import {ModelsService} from '../../models.service';
 
 @Component({
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-  constructor(private dialogService: DialogService, public userInfoService: LoggedinUserInfoService){
+  constructor(private orderPipe: OrderPipe, private modelsService: ModelsService, private http: HttpClient, private vipraService: ViprahubService, private dialogService: DialogService, public userInfoService: LoggedinUserInfoService){
   }
+  userDetails;
+  uploadedCount = localStorage.getItem('UploadedModels');
+  allModelsBasedOnUserIdFromDb;
 
   radioModel: string = 'Month';
 
@@ -392,6 +399,19 @@ export class DashboardComponent implements OnInit {
       this.mainChartData1.push(this.random(50, 200));
       this.mainChartData2.push(this.random(80, 100));
       this.mainChartData3.push(65);
+    }
+    this.userDetails = this.userInfoService.getUsers();
+    console.log(this.userDetails);
+    if (this.userInfoService.getUsers().emailID) {
+      this.modelsService.getAllModelsForUser(this.userInfoService.getUsers().emailID).subscribe(response => {
+        this.allModelsBasedOnUserIdFromDb = response;
+        console.log('models' + this.allModelsBasedOnUserIdFromDb);
+      });
+
+      // this.modelsService.getModelsBasedOnUserID(this.userInfoService.getUsers().emailID).subscribe(response => {
+      //   this.allModelsBasedOnUserIdFromDb = response;
+      //   console.log('models' + this.allModelsBasedOnUserIdFromDb);
+      // });
     }
   }
 }

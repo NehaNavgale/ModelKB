@@ -34,8 +34,6 @@ export class RegistrationComponent implements OnInit {
 
   }
   registerUser() {
-
-
     const userDetails = {} as registration;
     userDetails.emailID = this.user.email;
     userDetails.firstName = this.user.firstname;

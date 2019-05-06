@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node app.js",
+    "start": "ng build && nodemon ./BusinessLayer/server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "postinstall": "ng build --aot -prod",
+    "heroku-postbuild": "ng build --prod",
     "e2e": "ng e2e"
   },
   "engines": {

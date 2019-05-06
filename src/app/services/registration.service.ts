@@ -9,7 +9,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class RegistrationService {
-
+  userEmail;
   uri = 'http://localhost:4000/registration';
 
   constructor(private http: HttpClient) {
@@ -18,6 +18,10 @@ export class RegistrationService {
   addUser(userDetails) {
     console.log(userDetails);
     return this.http.post(`${this.uri}`, userDetails);
+  }
+  updateUploadCount(userDetails) {
+    console.log(userDetails);
+    return this.http.put(`${this.uri}/uploadCount`, userDetails);
   }
 
 }

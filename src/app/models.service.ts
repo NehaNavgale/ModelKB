@@ -8,6 +8,7 @@ const httpOptions = {
 };
 
 const apiModels = '/uploadToMongo';
+const apiUrl = 'http://localhost:4000/api';
 
 @Injectable()
 export class ModelsService {
@@ -62,6 +63,13 @@ export class ModelsService {
   getModelsBasedOnExperiment(userID: string, experiment: string): Observable<any> {
     console.log('inside files service getModelsBasedOnExperiment ' + experiment + ' ' + userID);
     return this.http.get(`${apiModels}/models?experiment=` + experiment + '&userID=' + userID, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  getAllModelsForUser(userID: string): Observable<any> {
+    console.log('inside getAllModels ' + userID);
+    return this.http.get(`${apiUrl}/getAllModels?userID=` + userID, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }

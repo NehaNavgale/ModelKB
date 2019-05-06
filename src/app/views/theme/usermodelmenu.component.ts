@@ -41,7 +41,7 @@ export class UsermodelmenuComponent implements OnInit {
     if (this.loggedinUserInfoService.getUsers().emailID) {
       this.modelsService.getModelsBasedOnUserID(this.loggedinUserInfoService.getUsers().emailID).subscribe(response => {
         this.allModelsBasedOnUserIdFromDb = response;
-
+        console.log('test' + response)
         this.distinctModelNames = Array.from(new Set(this.allModelsBasedOnUserIdFromDb.map(model => model.name)));
       //  console.log('Model Names________________' + this.distinctModelNames);
       });

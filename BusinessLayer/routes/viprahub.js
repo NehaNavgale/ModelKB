@@ -8,7 +8,19 @@ var upload = require('../models/upload.js');
 
 // Model metadata CRUD
 
+router.get('/getAllModels', function (req, res, next) {
+  console.log('inside getAllModels')
+  var userid = req.query.userID;
+  modelsMetadata.find({"Author":userid}, function (err, data) {
+    console.log(data);
+    if (err) return next(err);
+    res.json(data);
+  });
+});
+
+
 router.get('/getAll', function (req, res, next) {
+  console.log("inside getAll");
   var q = req.query.q;
   if (q == undefined || q == "" || q == null)
   {
@@ -118,13 +130,16 @@ router.get('/getModel/:modelID', function(req, res, next){
 
 });
 
-// router.get('/get', function(req, res, next){
-//   modelsMetadata.find({}, function (err,data){
-//     if (err) return next(err);
-//     res.json(data);
-//   });
-// });
 
+// modelsMetadata.find({"Author": userID}, function (err,post){
+//   if (err) return next(err);
+//   res.json(post);
+// });
+// console.log('inside getModelsByUserId' + userID)
+// modelsMetadata.aggregate([{$match: {"Author": userID}}], function (err,post){
+//   if (err) return next(err);
+//   res.json(post);
+// });
 
 
 module.exports = router;
