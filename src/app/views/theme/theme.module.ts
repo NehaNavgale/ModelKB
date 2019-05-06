@@ -1,6 +1,7 @@
 // Angular
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { ColorsComponent } from './colors.component';
 import { TypographyComponent } from './typography.component';
@@ -25,6 +26,7 @@ import { OrderModule } from 'ngx-order-pipe';
     TabsModule,
     MatButtonModule,
     FormsModule,
+    NgbModule,
     BsDropdownModule.forRoot()
   ],
   declarations: [

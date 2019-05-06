@@ -12,6 +12,7 @@ import {RegistrationComponent} from './registration/registration.component';
 import {UserdashboardComponent} from './userdashboard/userdashboard.component';
 import {SearchComponent} from './search/search.component';
 import {UploadDownloadComponent} from './upload/upload.component';
+import {RatingsComponent} from "./ratings/ratings.component";
 import {ShowImageComponent} from './showimage/showimage.component';
 import {ViewmodeldashboardComponent} from './viewmodeldashboard/viewmodeldashboard.component';
 
@@ -82,6 +83,7 @@ export const routes: Routes = [
   },
   {path: 'userdashboard', component: UserdashboardComponent},
   {path: 'upload', component: UploadDownloadComponent},
+  {path: 'RatingsComponent', component: RatingsComponent},
   {path: 'showimage', component: ShowImageComponent},
   {path: 'viewmodeldashboard', component: ViewmodeldashboardComponent}
 ];

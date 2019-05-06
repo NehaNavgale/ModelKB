@@ -1,0 +1,14 @@
+.star {
+  font-size: 3.5rem;
+  color: #b0c4de;
+}
+.filled {
+  color: darkorange;
+}
+.checked {
+  color: orange;
+}
+
+.dialogueStyles{
+  width: 22em; height: 10em;align-items: center
+}

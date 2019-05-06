@@ -26,8 +26,9 @@ export class LoginComponent implements OnInit {
       /*Receives success message if user exists and with correct credentails*/
       // @ts-ignore
       if (data.message === 'Success') {
-        console.log(data);
+       /* console.log("after service call", data);*/
         this.loggedInUserInfo.setUsers(data);
+        console.log("after logged in service call check", data);
         // const userInfo = this.loggedInUserInfo.getUsers();
         this.router.navigate(['./dashboard']);
         // @ts-ignore

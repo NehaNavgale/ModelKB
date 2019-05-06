@@ -69,6 +69,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { RatingsComponent } from './ratings/ratings.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     ViewmodeldashboardComponent,
     ProgressSpinnerDialogComponent,
     FilterpipePipe,
-    HomeComponent
+    HomeComponent,
+    RatingsComponent
   ],
   imports: [
     BrowserModule,
