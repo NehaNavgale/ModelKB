@@ -24,17 +24,14 @@ export class LoginComponent implements OnInit {
     /*Checking if users exists in DB by calling LoginServices*/
     this.loginService.authenticate(user).subscribe( (data) => {
       /*Receives success message if user exists and with correct credentails*/
-      // @ts-ignore
-      if (data.message === 'Success') {
+      if (data['message'] === 'Success') {
         console.log(data);
         this.loggedInUserInfo.setUsers(data);
         // const userInfo = this.loggedInUserInfo.getUsers();
         this.router.navigate(['./dashboard']);
-        // @ts-ignore
-        console.log(data.message);
+        console.log(data['message']);
       } else {
-        // @ts-ignore
-        console.log(data.message);
+        console.log(data['message']);
         this.InvalidUser = true;
       }
     });
