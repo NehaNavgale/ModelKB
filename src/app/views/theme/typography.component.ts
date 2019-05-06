@@ -28,10 +28,11 @@ export class TypographyComponent {
   constructor(private http: HttpClient, public vipraService: ViprahubService, private router: Router,
               private orderPipe: OrderPipe, private userInfo: LoggedinUserInfoService, private viewmodelDashboardService: ViewmodeldashboardService) {
     // this.listOfModels = this.orderPipe.transform(this.vipraService.searchResults, this.order);
-    console.log(userInfo.getUsers());
+    // console.log(userInfo.getUsers());
     this.vipraService.getMetadata().subscribe(res => {
       this.vipraService.backupResults = res;
       this.vipraService.searchResults = res;
+      console.log(this.vipraService.searchResults);
     }, err => {
       console.log(err);
     });

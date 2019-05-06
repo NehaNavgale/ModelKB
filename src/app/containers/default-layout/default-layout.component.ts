@@ -18,22 +18,24 @@ export class DefaultLayoutComponent implements OnDestroy {
   search = { text: ''};
   userEmail;
   constructor(public router: Router, private http: HttpClient,
-              private userInfo: LoggedinUserInfoService, public vipraService: ViprahubService, @Inject(DOCUMENT) _document?: any) {
+              private userInfo: LoggedinUserInfoService, public vipraService: ViprahubService) {
 
-    this.changes = new MutationObserver((mutations) => {
-      this.sidebarMinimized = _document.body.classList.contains('sidebar-minimized');
-    });
+  // @Inject(DOCUMENT) _document?: any
+
+    // this.changes = new MutationObserver((mutations) => {
+    //   // this.sidebarMinimized = _document.body.classList.contains('sidebar-minimized');
+    // });
     this.userEmail = this.userInfo['emailID'];
-    this.element = _document.body;
-    this.changes.observe(<Element>this.element, {
-      attributes: true,
-      attributeFilter: ['class']
-    });
+    // this.element = _document.body;
+    // this.changes.observe(<Element>this.element, {
+    //   attributes: true,
+    //   attributeFilter: ['class']
+    // });
   }
   getResults() {
     this.vipraService.searchText = this.search.text;
     this.vipraService.getSearchResults(this.search.text);
-    this.router.navigate(['/theme/typography']);
+    this.router.navigate(['/theme/search']);
   }
 
   ngOnDestroy(): void {

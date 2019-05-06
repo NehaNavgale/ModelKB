@@ -47,7 +47,7 @@ export const navItems: NavData[] = [
   // },
   {
     name: 'Search Models',
-    url: '/theme/typography',
+    url: '/theme/search',
     icon: 'fa fa-search'
   },
   {
