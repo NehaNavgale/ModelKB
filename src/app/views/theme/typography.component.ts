@@ -66,7 +66,7 @@ export class TypographyComponent {
     this.filterSelected.push(e.target.id);
     this.filterSelected.forEach(item => {
       this.result = this.vipraService.backupResults.filter(element => {
-        return element.categoryID === item || element.Rating === item;
+        return element.categoryID === item || element.overAllRating === item;
       });
       this.result.forEach(element => {
         finalResult.push(element);
@@ -80,7 +80,7 @@ export class TypographyComponent {
       if (this.filterSelected.length > 0) {
         this.filterSelected.forEach(item => {
           this.result = this.vipraService.backupResults.filter(element => {
-            return element.categoryID === item || element.Rating === item;
+            return element.categoryID === item || element.overAllRating === item;
           });
           this.result.forEach(element => {
             finalResult.push(element);

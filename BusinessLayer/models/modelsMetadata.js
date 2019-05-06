@@ -17,7 +17,8 @@ var metadataSchema = new mongoose.Schema({
   experiment: {type:String, text: true},
   Author: {type:String},
   categoryID: {type:String, text: true},
-  downloadedCount: {type:String}
+  downloadedCount: {type:String},
+  overAllRating: {type:String}
 });
 
 // metadataSchema.index({Author: 'text', model_name: 'text', categoryID: 'text'});

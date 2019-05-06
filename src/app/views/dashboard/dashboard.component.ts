@@ -18,6 +18,8 @@ export class DashboardComponent implements OnInit {
   }
   userDetails;
   downloadCount = 0;
+  overAllRating = 0;
+  numberOfModels = 0;
   uploadedCount = localStorage.getItem('UploadedModels');
   allModelsBasedOnUserIdFromDb;
 
@@ -409,7 +411,10 @@ export class DashboardComponent implements OnInit {
         console.log('models' + this.allModelsBasedOnUserIdFromDb);
         this.allModelsBasedOnUserIdFromDb.forEach(y => {
           this.downloadCount = this.downloadCount + parseInt(y.downloadedCount, 10);
+          this.overAllRating = this.overAllRating + parseInt(y.overAllRating, 10);
+          this.numberOfModels = this.numberOfModels + 1;
         });
+        this.overAllRating = this.overAllRating / this.numberOfModels;
       });
 
       // this.modelsService.getModelsBasedOnUserID(this.userInfoService.getUsers().emailID).subscribe(response => {
