@@ -15,7 +15,7 @@ export class RatingsComponent implements OnInit {
   AvgRatings;
   thanks;
   constructor( public dialogRef: MatDialogRef<RatingsComponent> , private ratingsService: RatingsService) {
-    //console.log(this.currentRate);
+    // console.log(this.currentRate);
   }
 
   rateModel() {
@@ -23,13 +23,13 @@ export class RatingsComponent implements OnInit {
     this.ratingsService.postRating(this.currentRate).subscribe(data => {
       console.log('After Rating Backend call', data);
       this.modelID = localStorage.getItem('modelID');
-      this.AvgRatings= this.getRatings(this.modelID);
+      this.AvgRatings = this.getRatings(this.modelID);
       console.log(this.AvgRatings);
       this.thanks = true;
-    })
+    });
   }
 
-  getRatings(modelID){
+  getRatings(modelID) {
     this.ratingsService.getRatings(this.modelID).subscribe(res => {
       this.expRatings =  res;
       console.log('get Ratings Result', this.expRatings);

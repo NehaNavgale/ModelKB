@@ -39,7 +39,7 @@ export class ColorsComponent implements OnInit {
   public expComments;
   currentRate;
 
-  uri = 'http://localhost:4000/comments';
+  uri = 'https://viprahubbackend.herokuapp.com/comments';
 
   constructor(
     private dialogService: DialogService,
@@ -90,7 +90,7 @@ export class ColorsComponent implements OnInit {
     this.downloadCount = this.downloadCount.toString();
     console.log(this.downloadCount);
     const modelDetails = {
-      experiment: this.experiment,
+      experiment: this.modelObj.experiment,
       downloadedCount: this.downloadCount
     };
     this.viprahubService.updateDownloadCount(modelDetails).subscribe(data => {
@@ -162,7 +162,7 @@ export class ColorsComponent implements OnInit {
     });
   }
 
-//Fetching comments based on experiment
+// Fetching comments based on experiment
   getComments(id) {
     this.http.get(`${this.uri}/getAllComments/${id}`, httpOptions).subscribe(res => {
       this.expComments =  res;
@@ -172,7 +172,7 @@ export class ColorsComponent implements OnInit {
   }
   downloadModel() {
 
-    window.open('http://localhost:4000/uploadToMongo/zipfiles');
+    window.open('https://viprahubbackend.herokuapp.com/uploadToMongo/zipfiles');
 
     // this.http.get('http://localhost:4000/uploadToMongo/zipfiles').subscribe(res => {
     //

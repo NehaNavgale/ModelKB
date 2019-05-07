@@ -50,25 +50,25 @@
           </div>
         </div>
       </div>
-      <div class="row form-group mt-3 ml-25">
-        <div class="col-8 text-left">
-          <label class=""><b>Rating</b></label>
-        </div>
-        <div class="col-4">
-          <i class="fa fa-plus fa-lg" [hidden]="displayRating" (click)="expandRating()"></i>
-          <i class="fa fa-minus fa-lg" [hidden]="!displayRating" (click)="contractRating()"></i>
-        </div>
-      </div>
-      <div class="row" [hidden]="!displayRating">
-        <div class="col-md-12">
-          <div class="form-check" *ngFor="let rating of ratingsList" (change)="filterChecked($event)">
-            <input class="form-check-input" type="checkbox" value="{{rating.id}}" id="{{rating.id}}">
-            <label class="form-check-label" for="{{rating.id}}">
-              {{rating.id}}
-            </label>
-          </div>
-        </div>
-      </div>
+      <!--<div class="row form-group mt-3 ml-25">-->
+        <!--<div class="col-8 text-left">-->
+          <!--<label class=""><b>Rating</b></label>-->
+        <!--</div>-->
+        <!--<div class="col-4">-->
+          <!--<i class="fa fa-plus fa-lg" [hidden]="displayRating" (click)="expandRating()"></i>-->
+          <!--<i class="fa fa-minus fa-lg" [hidden]="!displayRating" (click)="contractRating()"></i>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="row" [hidden]="!displayRating">-->
+        <!--<div class="col-md-12">-->
+          <!--<div class="form-check" *ngFor="let rating of ratingsList" (change)="filterChecked($event)">-->
+            <!--<input class="form-check-input" type="checkbox" value="{{rating.id}}" id="{{rating.id}}">-->
+            <!--<label class="form-check-label" for="{{rating.id}}">-->
+              <!--{{rating.id}}-->
+            <!--</label>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
     </form>
   </div>
       <div class="col-10">
@@ -84,11 +84,11 @@
                         <h3 class="p-1"><b>{{modelData.model_name}}</b></h3>
                         <label class="pl-1">{{modelData.Year}}</label>
                       </div>
-                      <div class="col-2 text-center">
-                        <div class="rounded border-secondary border p-1">
-                          <i class="fa fa-star fa-lg"></i> {{modelData.overAllRating}}
-                        </div>
-                      </div>
+                      <!--<div class="col-2 text-center">-->
+                        <!--<div class="rounded border-secondary border p-1">-->
+                          <!--<i class="fa fa-star fa-lg"></i> {{modelData.overAllRating}}-->
+                        <!--</div>-->
+                      <!--</div>-->
                     </div>
                     <div class="row p-2">
                       <div class="col-md-auto">
