@@ -11,8 +11,8 @@ import * as JSZip from 'jszip';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import {ProgressSpinnerDialogComponent} from '../../progress-spinner/progress-spinner-dialog.component';
 import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
-import { RatingsComponent} from "../../ratings/ratings.component";
-import {DialogService} from "../../dialog.service";
+import { RatingsComponent} from '../../ratings/ratings.component';
+import {DialogService} from '../../dialog.service';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -31,7 +31,6 @@ export class ColorsComponent implements OnInit {
   modelObj;
   modelID;
   downloadCount;
-  public experiment = 'exp1';
   Author;
   loggedInUserInfo;
   comment;
@@ -86,11 +85,12 @@ export class ColorsComponent implements OnInit {
     this.getComments(this.modelID);
   }
   updateDownloadCount() {
+    // const experiment = this.modelObj.experiment;
     this.downloadCount = parseInt(this.downloadCount, 10) + 1;
     this.downloadCount = this.downloadCount.toString();
     console.log(this.downloadCount);
     const modelDetails = {
-      experiment: this.experiment,
+      experiment: this.modelObj.experiment,
       downloadedCount: this.downloadCount
     };
     this.viprahubService.updateDownloadCount(modelDetails).subscribe(data => {
@@ -99,11 +99,11 @@ export class ColorsComponent implements OnInit {
   }
   downloadFilesInZip() {
     this.updateDownloadCount();
-    const zipeFileName = this.experiment + '.zip';
+    const experiment = this.modelObj.experiment;
+    const zipeFileName = experiment + '.zip';
     const zip: JSZip = new JSZip();
-    const folder = zip.folder(this.experiment);
-
-    this.modelsService.getModelsBasedOnExperiment(this.loggedinUserInfoService.userInfo.emailID, this.experiment).subscribe(response => {
+    const folder = zip.folder(experiment);
+    this.modelsService.getModelsBasedOnExperiment(experiment).subscribe(response => {
       const dialogRef: MatDialogRef<ProgressSpinnerDialogComponent> = this.dialog.open(ProgressSpinnerDialogComponent, {
         panelClass: 'transparent',
         disableClose: true
