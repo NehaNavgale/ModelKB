@@ -15,10 +15,6 @@ import { RatingsComponent} from "../../ratings/ratings.component";
 import {DialogService} from "../../dialog.service";
 import {RatingsService} from "../../ratings.service";
 
-const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
-};
-
 @NgModule({
   imports: [
     MatTabsModule,
@@ -170,7 +166,7 @@ export class ColorsComponent implements OnInit {
     commentObj.emailID = this.loggedInUserInfo.emailID;
     commentObj.fullName = this.loggedInUserInfo.fullName;
     console.log('Before service call', commentObj);
-    this.http.post(`${this.uri}/postComments`, commentObj, httpOptions).subscribe(data => {
+    this.http.post(`${this.uri}/postComments`, commentObj).subscribe(data => {
       console.log(data);
       this.getComments(this.modelID);
       this.comment = "";
@@ -179,7 +175,7 @@ export class ColorsComponent implements OnInit {
 
 // Fetching comments based on experiment
   getComments(id) {
-    this.http.get(`${this.uri}/getAllComments/${id}`, httpOptions).subscribe(res => {
+    this.http.get(`${this.uri}/getAllComments/${id}`).subscribe(res => {
       this.expComments =  res;
       return this.expComments;
       console.log('getresult', this.expComments);
