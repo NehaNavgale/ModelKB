@@ -2,10 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import { LoggedinUserInfoService} from "./services/loggedin-user-info.service";
 
-const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
-};
-
 
 const uri= 'https://viprahubbackend.herokuapp.com/ratings';
 @Injectable({
@@ -23,7 +19,7 @@ export class RatingsService {
 
   // Fetching ratings based on experiment
   getRatings(id) {
-    return this.http.get(`${uri}/getAllRatings/${id}`, httpOptions);
+    return this.http.get(`${uri}/getAllRatings/${id}`);
   }
 
   // Posting Ratings for an experiments
@@ -46,6 +42,6 @@ export class RatingsService {
     console.log('Before service call', ratingObj);
     // this.expRatings = this.getRatings(this.modelID);
     // console.log(this.expRatings);
-    return this.http.post(`${uri}/postRating`, ratingObj, httpOptions);
+    return this.http.post(`${uri}/postRating`, ratingObj);
   }
 }
