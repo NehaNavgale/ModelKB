@@ -58,7 +58,10 @@ export class ColorsComponent implements OnInit {
       this.storeModelObj();
       console.log(this.getLocalModelObj());
     });
-    console.log(this.currentRate);
+
+    var modelID = localStorage.getItem('modelID');
+    this.getComments(modelID);
+    this.getRatings(modelID);
   }
 
   public themeColors() {
@@ -94,9 +97,7 @@ export class ColorsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.modelID = localStorage.getItem('modelID');
-    this.getComments(this.modelID);
-    this.getRatings(this.modelID);
+
   }
   updateDownloadCount() {
     // const experiment = this.modelObj.experiment;
