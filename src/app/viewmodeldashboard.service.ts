@@ -30,7 +30,7 @@ export class ViewmodeldashboardService {
 
   constructor(private http: HttpClient) { }
   modelObj;
-   uri = 'http://localhost:4000/viewModel';
+   uri = 'https://viprahubbackend.herokuapp.com/viewModel';
   getModel() {
    console.log('Hi Service');
    console.log(this.uri);

@@ -7,8 +7,8 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const apiModels = 'http://localhost:4000/uploadToMongo';
-const apiUrl = 'http://localhost:4000/api';
+const apiModels = 'https://viprahubbackend.herokuapp.com/uploadToMongo';
+const apiUrl = 'https://viprahubbackend.herokuapp.com/api';
 
 @Injectable()
 export class ModelsService {

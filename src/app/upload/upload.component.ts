@@ -19,7 +19,7 @@ export class UploadDownloadComponent implements OnInit {
   uploadCount;
   private files = [];
   /*private url = '/uploadToMongo/files';*/
-  private url = 'http://localhost:4000/uploadToMongo/files';
+  private url = 'https://viprahubbackend.herokuapp.com/uploadToMongo/files';
   public uploader: FileUploader;
   public categories: any[];
   public allModelsFromDb: any;

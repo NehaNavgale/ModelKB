@@ -9,12 +9,13 @@ import {OrderPipe} from 'ngx-order-pipe';
 import {ViprahubService} from '../../viprahub.service';
 import {HttpClient} from '@angular/common/http';
 import {ModelsService} from '../../models.service';
+import {RatingsService} from '../../ratings.service';
 
 @Component({
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-  constructor(private orderPipe: OrderPipe, private modelsService: ModelsService, private http: HttpClient, private vipraService: ViprahubService, private dialogService: DialogService, public userInfoService: LoggedinUserInfoService){
+  constructor(private orderPipe: OrderPipe, private ratingsService: RatingsService, private modelsService: ModelsService, private http: HttpClient, private vipraService: ViprahubService, private dialogService: DialogService, public userInfoService: LoggedinUserInfoService){
   }
   userDetails;
   downloadCount = 0;

@@ -11,8 +11,8 @@ const httpImageOptions = {
   headers: new HttpHeaders({'Content-Type': 'image/jpeg'})
 };
 
-const apiFiles = 'http://localhost:4000/uploadToMongo/files';
-const apiChunks = 'http://localhost:4000/uploadToMongo/chunks';
+const apiFiles = 'https://viprahubbackend.herokuapp.com/uploadToMongo/files';
+const apiChunks = 'https://viprahubbackend.herokuapp.com/uploadToMongo/chunks';
 
 @Injectable()
 export class FilesService {
