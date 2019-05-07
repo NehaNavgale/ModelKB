@@ -37,9 +37,7 @@ export class ColorsComponent implements OnInit {
   comment;
   restrictRating;
   public expComments;
-  currentRate = this.currentRate;
-  expRatings;
-  AvgRatings;
+  currentRate ;
 
   uri = 'https://viprahubbackend.herokuapp.com/comments';
 
@@ -73,7 +71,7 @@ export class ColorsComponent implements OnInit {
     this.Author = localStorage.getItem('Author');
     return this.Author;
   }
-  public rating() {
+  restrictedRating() {
     this.loggedInUserInfo = this.loggedinUserInfoService.getUsers();
     this.Author= localStorage.getItem('Author');
     if(this.loggedInUserInfo.emailID == this.Author){
@@ -84,9 +82,13 @@ export class ColorsComponent implements OnInit {
 
   }
   getRatings(modelID){
-    this.ratingsService.getRatings(this.modelID).subscribe(res => {
-      this.currentRate =  res;
-      console.log('get Ratings Result', this.currentRate);
+    this.ratingsService.getRatings(modelID).subscribe(res => {
+      // @ts-ignore
+      if(res.length > 0){
+        this.currentRate =  res[0].AvgRating;
+      }
+      console.log('get Ratings Result', res);
+
     });
   }
 
