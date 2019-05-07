@@ -46,50 +46,50 @@
         </div>
       </div>
     </div><!--/.col-->
-    <div class="col-sm-6 col-lg-3">
-      <div class="card text-white bg-warning">
-        <div class="card-body pb-0">
-          <div class="btn-group float-right" dropdown>
-            <button type="button" class="btn btn-transparent">
-              <i class="fa fa-star fa-2x"></i>
-            </button>
-          </div>
-          <div class="text-value">{{overAllRating}}</div>
-          <div>Overall ratings</div>
-        </div>
-        <div class="chart-wrapper mt-3" style="height:70px;">
-          <canvas baseChart class="chart"
-          [datasets]="lineChart3Data"
-          [labels]="lineChart3Labels"
-          [options]="lineChart3Options"
-          [colors]="lineChart3Colours"
-          [legend]="lineChart3Legend"
-          [chartType]="lineChart3Type"></canvas>
-        </div>
-      </div>
-    </div><!--/.col-->
-    <div class="col-sm-6 col-lg-3">
-      <div class="card text-white bg-danger">
-        <div class="card-body pb-0">
-          <div class="btn-group float-right" dropdown>
-            <button type="button" class="btn btn-transparent dropdown-toggle p-0" dropdownToggle>
-              <i class="fa fa-comments fa-2x"></i>
-            </button>
-          </div>
-          <div class="text-value">300</div>
-          <div>Overall Comments</div>
-        </div>
-        <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
-          <canvas baseChart class="chart"
-          [datasets]="barChart1Data"
-          [labels]="barChart1Labels"
-          [options]="barChart1Options"
-          [colors]="barChart1Colours"
-          [legend]="barChart1Legend"
-          [chartType]="barChart1Type"></canvas>
-        </div>
-      </div>
-    </div><!--/.col-->
+    <!--<div class="col-sm-6 col-lg-3">-->
+      <!--<div class="card text-white bg-warning">-->
+        <!--<div class="card-body pb-0">-->
+          <!--<div class="btn-group float-right" dropdown>-->
+            <!--<button type="button" class="btn btn-transparent">-->
+              <!--<i class="fa fa-star fa-2x"></i>-->
+            <!--</button>-->
+          <!--</div>-->
+          <!--<div class="text-value">{{overAllRating}}</div>-->
+          <!--<div>Overall ratings</div>-->
+        <!--</div>-->
+        <!--<div class="chart-wrapper mt-3" style="height:70px;">-->
+          <!--<canvas baseChart class="chart"-->
+          <!--[datasets]="lineChart3Data"-->
+          <!--[labels]="lineChart3Labels"-->
+          <!--[options]="lineChart3Options"-->
+          <!--[colors]="lineChart3Colours"-->
+          <!--[legend]="lineChart3Legend"-->
+          <!--[chartType]="lineChart3Type"></canvas>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>&lt;!&ndash;/.col&ndash;&gt;-->
+    <!--<div class="col-sm-6 col-lg-3">-->
+      <!--<div class="card text-white bg-danger">-->
+        <!--<div class="card-body pb-0">-->
+          <!--<div class="btn-group float-right" dropdown>-->
+            <!--<button type="button" class="btn btn-transparent dropdown-toggle p-0" dropdownToggle>-->
+              <!--<i class="fa fa-comments fa-2x"></i>-->
+            <!--</button>-->
+          <!--</div>-->
+          <!--<div class="text-value">300</div>-->
+          <!--<div>Overall Comments</div>-->
+        <!--</div>-->
+        <!--<div class="chart-wrapper mt-3 mx-3" style="height:70px;">-->
+          <!--<canvas baseChart class="chart"-->
+          <!--[datasets]="barChart1Data"-->
+          <!--[labels]="barChart1Labels"-->
+          <!--[options]="barChart1Options"-->
+          <!--[colors]="barChart1Colours"-->
+          <!--[legend]="barChart1Legend"-->
+          <!--[chartType]="barChart1Type"></canvas>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>&lt;!&ndash;/.col&ndash;&gt;-->
   </div>
 
 <!--  Top 10 models-->
@@ -97,7 +97,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          Top 10 highly rated models
+          Models
         </div>
         <div class="card-body">
           <!--<div class="row">-->
@@ -163,12 +163,12 @@
           <table class="table table-bordered  table-hover mt-2" style="background: white">
             <thead style="background: #1c214b; color: white">
             <tr>
-              <th scope="col">Category</th>
+              <!--<th scope="col">Category</th>-->
               <th scope="col">Model Name</th>
               <th scope="col">Accuracy</th>
               <th scope="col">Optimizer</th>
               <th scope="col">Framework</th>
-              <th scope="col">Year</th>
+              <th scope="col">Download Count</th>
               <!--<th scope="col">Rating</th>-->
               <!--<th scope="col">Brief Desc</th>-->
               <!--<th scope="col">Rating</th>-->
@@ -176,13 +176,14 @@
             </thead>
             <tbody>
             <tr data-toggle="tooltip" data-placement="right" title="Click to view model" style="pointer-events: fill;" *ngFor="let modelData of this.allModelsBasedOnUserIdFromDb">
-              <th scope="row">{{modelData.categoryID}}</th>
+              <!--<th scope="row">{{modelData.categoryID}}</th>-->
               <td>{{modelData.model_name}}</td>
               <td>{{modelData.AccuracyValue}}</td>
               <td>{{modelData.Optimizer}}</td>
               <td>{{modelData.framework}}</td>
-              <td>{{modelData.Year}}</td>
-              <!--<td>{{modelData.Rating}}</td>-->
+              <td>{{modelData.downloadedCount}}</td>
+              <!--<td>{{modelData.Year}}</td>-->
+              <!--<td>{{modelData.overAllRating }}</td>-->
             </tr>
             </tbody>
           </table>

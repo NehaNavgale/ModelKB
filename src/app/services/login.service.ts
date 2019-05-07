@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http'
 })
 export class LoginService {
 
-  uri = 'http://localhost:4000/login';
+  uri = 'https://viprahubbackend.herokuapp.com/login';
 
   constructor(private http: HttpClient) {
   }

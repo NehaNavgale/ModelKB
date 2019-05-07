@@ -51,7 +51,7 @@ export const navItems: NavData[] = [
     icon: 'fa fa-search'
   },
   {
-    name: ' Models',
+    name: 'My Models',
     url: '/theme/usermodelmenu',
     icon: 'fa fa-folder'
   }

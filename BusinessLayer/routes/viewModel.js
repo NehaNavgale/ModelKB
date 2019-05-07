@@ -29,7 +29,7 @@ viewModelRouter.get('/', function(req, res, next){
   modelsMetadata.findById({"_id": '5c8dd4120004b43a63200588'}, function (err,post){
     if (err) return next(err);
     var data = post;
-    data.URL = "http://localhost:4000/uploadToMongo/chunks/ahhgshgs";
+    data.URL = "https://viprahubbackend.herokuapp.com/uploadToMongo/chunks/ahhgshgs";
     /*console.log(data);*/
     res.json(data);
   }).lean().exec();

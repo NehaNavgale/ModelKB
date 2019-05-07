@@ -19,8 +19,14 @@ export class RatingsService {
   loggedInUserInfo;
   modelID;
   expRatings;
+  newRatings;
 
-  //Posting Ratings for an experiments
+  // Fetching ratings based on experiment
+  getRatings(id) {
+    return this.http.get(`${uri}/getAllRatings/${id}`, httpOptions);
+  }
+
+  // Posting Ratings for an experiments
 
   postRating(currentrating) {
     console.log("Rating Service call", currentrating);
@@ -38,12 +44,8 @@ export class RatingsService {
     ratingObj.emailID = this.loggedInUserInfo.emailID;
     ratingObj.fullName = this.loggedInUserInfo.fullName;
     console.log('Before service call', ratingObj);
-     return this.http.post(`${uri}/postRating`, ratingObj, httpOptions);
-  }
-
-
-  //Fetching ratings based on experiment
-  getRatings(id) {
-   return this.http.get(`${uri}/getAllRatings/${id}`, httpOptions);
+    // this.expRatings = this.getRatings(this.modelID);
+    // console.log(this.expRatings);
+    return this.http.post(`${uri}/postRating`, ratingObj, httpOptions);
   }
 }

@@ -7,9 +7,9 @@ import {catchError, tap, map} from 'rxjs/operators';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = 'http://localhost:4000/api';
-const apiUrlCategory = 'http://localhost:4000/category';
-const apiUrlUserModelsData = 'http://localhost:4000/usermodels';
+const apiUrl = 'https://viprahubbackend.herokuapp.com/api';
+const apiUrlCategory = 'https://viprahubbackend.herokuapp.com/category';
+const apiUrlUserModelsData = 'https://viprahubbackend.herokuapp.com/usermodels';
 
 @Injectable({
   providedIn: 'root'

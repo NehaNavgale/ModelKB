@@ -7,8 +7,8 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const apiModels = 'http://localhost:4000/uploadToMongo';
-const apiUrl = 'http://localhost:4000/api';
+const apiModels = 'https://viprahubbackend.herokuapp.com/uploadToMongo';
+const apiUrl = 'https://viprahubbackend.herokuapp.com/api';
 
 @Injectable()
 export class ModelsService {
@@ -60,9 +60,9 @@ export class ModelsService {
       catchError(this.handleError));
   }
 
-  getModelsBasedOnExperiment(userID: string, experiment: string): Observable<any> {
-    console.log('inside files service getModelsBasedOnExperiment ' + experiment + ' ' + userID);
-    return this.http.get(`${apiModels}/models?experiment=` + experiment + '&userID=' + userID, httpOptions).pipe(
+  getModelsBasedOnExperiment(experiment: string): Observable<any> {
+    console.log('inside files service getModelsBasedOnExperiment ' + experiment);
+    return this.http.get(`${apiModels}/models?experiment=` + experiment, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }

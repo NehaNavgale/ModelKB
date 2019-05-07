@@ -54,20 +54,56 @@
       </div>
     </div>
       <div class="row m-5">
-        <div  class="col-sm col-sm-4 mt-2 mr-0" (click)="goToLogin()" *ngFor="let modelData of (listOfModels | orderBy: '-AccuracyValue') | slice:0:3 " >  <!--| orderBy: '-AccuracyValue'-->
-          <div class="card features rounded p-4 fixedHeightHome">
+        <!--<div  class="col-sm col-sm-4 mt-2 mr-0" (click)="goToLogin()" *ngFor="let modelData of (listOfModels | orderBy: '-AccuracyValue') | slice:0:3 " >  &lt;!&ndash;| orderBy: '-AccuracyValue'&ndash;&gt;-->
+          <!--<div class="card features rounded p-4 fixedHeightHome">-->
+            <!--<div class="card-body">-->
+              <!--<h5 class="p-1">{{modelData.model_name}}</h5>-->
+              <!--<div class="row p-2">-->
+                <!--<div class="col-md-auto">-->
+                  <!--<b>Author</b> : {{modelData.Author}} <br>-->
+                  <!--<b>Accuracy</b> : {{modelData.AccuracyValue}}<br>-->
+                  <!--<b>Optimizer</b> : {{modelData.Optimizer}}<br>-->
+                  <!--<b>Framework</b> : {{modelData.framework}}<br>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div>-->
+                <!--<button mat-flat-button style="background-color: #1c214bad;color: white" (click)="goToLogin()"> <i class="fa fa-download"></i> Download</button>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <div  class="col-12 mt-2 mr-0" *ngFor="let modelData of (listOfModels | orderBy: '-AccuracyValue') | slice:0:3  " >
+          <div class="card features rounded">
             <div class="card-body">
-              <h5 class="p-1">{{modelData.model_name}}</h5>
-              <div class="row p-2">
-                <div class="col-md-auto">
-                  <b>Author</b> : {{modelData.Author}} <br>
-                  <b>Accuracy</b> : {{modelData.AccuracyValue}}<br>
-                  <b>Optimizer</b> : {{modelData.Optimizer}}<br>
-                  <b>Framework</b> : {{modelData.framework}}<br>
+              <div class="row">
+                <div class="col-5"><img src="../../../assets/image/deep_learning.jpg" style="width:100%"/></div>
+                <div class="col-7">
+                  <div class="row">
+                    <div class="col-8">
+                      <h3 class="p-1"><b>{{modelData.model_name}}</b></h3>
+                      <label class="pl-1">{{modelData.Year}}</label>
+                    </div>
+                    <div class="col-2 text-center">
+                    <!--<div class="rounded border-secondary border p-1">-->
+                      <!--<i class="fa fa-star fa-lg"></i> {{modelData.overAllRating}}-->
+                    <!--</div>-->
+                      <button mat-flat-button style="background-color: #1c214bad;color: white" (click)="goToLogin()"> <i class="fa fa-download"></i> Download</button>
+                  </div>
+                  </div>
+                  <div class="row p-2">
+                    <div class="col-md-auto">
+                      <!--<b>Author</b> :  -->
+                      The model is published by Author <b>{{modelData.Author}}</b> in the year <b>{{modelData.Year}}</b>.
+                      This model has following metadata: <br>
+                      <!--<b>Category</b> : {{modelData.categoryID}}<br>-->
+                      <b>Accuracy</b> : {{modelData.AccuracyValue}}<br>
+                      <b>Optimizer</b> : {{modelData.Optimizer}}<br>
+                      <b>Framework</b> : {{modelData.framework}}<br>
+                      <!--<b>Year</b> : {{modelData.Year}}<br>-->
+                      <!--<b>Rating</b> : {{modelData.Rating}}<br>-->
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <button mat-flat-button style="background-color: #1c214bad;color: white" (click)="goToLogin()"> <i class="fa fa-download"></i> Download</button>
               </div>
             </div>
           </div>

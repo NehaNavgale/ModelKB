@@ -10,7 +10,7 @@ const httpOptions = {
 })
 export class RegistrationService {
   userEmail;
-  uri = 'http://localhost:4000/registration';
+  uri = 'https://viprahubbackend.herokuapp.com/registration';
 
   constructor(private http: HttpClient) {
   }

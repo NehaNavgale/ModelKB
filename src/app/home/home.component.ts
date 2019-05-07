@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
     else{
       console.log(this.loginInfo.emailID);
       console.log("logged in user")
-      this.router.navigate(['./theme/typography'])
+      this.router.navigate(['./theme/search']);
     }
 
   }
