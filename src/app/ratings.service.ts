@@ -7,7 +7,7 @@ const httpOptions = {
 };
 
 
-const uri= 'http://localhost:4000/ratings';
+const uri= 'https://viprahubbackend.herokuapp.com/ratings';
 @Injectable({
   providedIn: 'root'
 })

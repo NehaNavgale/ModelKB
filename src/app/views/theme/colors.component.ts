@@ -13,6 +13,7 @@ import {ProgressSpinnerDialogComponent} from '../../progress-spinner/progress-sp
 import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import { RatingsComponent} from "../../ratings/ratings.component";
 import {DialogService} from "../../dialog.service";
+import {RatingsService} from "../../ratings.service";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -37,12 +38,15 @@ export class ColorsComponent implements OnInit {
   comment;
   restrictRating;
   public expComments;
-  currentRate;
+  currentRate = this.currentRate;
+  expRatings;
+  AvgRatings;
 
   uri = 'http://localhost:4000/comments';
 
   constructor(
     private dialogService: DialogService,
+    private ratingsService: RatingsService,
     private viewmodelDashboardService: ViewmodeldashboardService,
     private viprahubService: ViprahubService,
     private filesService: FilesService,
@@ -80,10 +84,18 @@ export class ColorsComponent implements OnInit {
     }
 
   }
+  getRatings(modelID){
+    this.ratingsService.getRatings(this.modelID).subscribe(res => {
+      this.currentRate =  res;
+      console.log('get Ratings Result', this.currentRate);
+    });
+  }
+
 
   ngOnInit() {
     this.modelID = localStorage.getItem('modelID');
     this.getComments(this.modelID);
+    this.getRatings(this.modelID);
   }
   updateDownloadCount() {
     this.downloadCount = parseInt(this.downloadCount, 10) + 1;

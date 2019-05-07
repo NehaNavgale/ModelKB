@@ -17,25 +17,24 @@ export class DefaultLayoutComponent implements OnDestroy {
   public element: HTMLElement;
   search = { text: ''};
   userEmail;
-  newuserinfo;
   userprofileInfo;
   hidden = false;
   constructor(public router: Router, private http: HttpClient,
-              private userInfo: LoggedinUserInfoService, public vipraService: ViprahubService) {
+              private userInfo: LoggedinUserInfoService, public vipraService: ViprahubService, @Inject(DOCUMENT) _document?: any) {
     this.userprofileInfo = this.userInfo.getUsers();
    /* console.log("Profile", this.userprofileInfo.emailID);*/
 
-  // @Inject(DOCUMENT) _document?: any
 
-    // this.changes = new MutationObserver((mutations) => {
-    //   // this.sidebarMinimized = _document.body.classList.contains('sidebar-minimized');
-    // });
+
+    this.changes = new MutationObserver((mutations) => {
+     this.sidebarMinimized = _document.body.classList.contains('sidebar-minimized');
+     });
     this.userEmail = this.userInfo['emailID'];
-    // this.element = _document.body;
-    // this.changes.observe(<Element>this.element, {
-    //   attributes: true,
-    //   attributeFilter: ['class']
-    // });
+    this.element = _document.body;
+    this.changes.observe(<Element>this.element, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
   }
   getResults() {
     this.vipraService.searchText = this.search.text;
@@ -44,7 +43,6 @@ export class DefaultLayoutComponent implements OnDestroy {
   }
   logout(){
     this.userInfo.logout();
-    this.newuserinfo= this.userInfo.getUsers();
     this.router.navigate(['./login']);
   }
   ngOnDestroy(): void {

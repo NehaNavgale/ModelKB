@@ -26,7 +26,7 @@
 
   <div class="card-body"  *ngIf="modelObj">
     <h3 class="card-title" style="color: darkblue;">{{modelObj.model_name}}
-      <ngb-rating [(rate)]="currentRate" max="5" (rateChange)='rateModel()'>
+      <ngb-rating [(rate)]="currentRate" max="5">
         <ng-template let-fill="fill">
           <span  class="star" [class.filled]="fill === 100">&#9733;</span>
         </ng-template>
